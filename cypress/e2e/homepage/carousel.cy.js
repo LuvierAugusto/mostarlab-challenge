@@ -9,11 +9,16 @@ describe('Mall.cz Homepage Carousels Test', () => {
 
   it('should verify that each carousel on the homepage displays 15 unique elements', () => {
     // Get all carousels on the homepage
-    home.getTopIconsCarousel().each((carousel) => {
-      expect(carousel.children().length()).to.equal(15)
+    home.getCategoryCarousel().each((carousel) => {
+      // Expect carousel child elements to be equal to 15
+      const carouselList = carousel.find('.top-icons__list > ul')
+      expect(carouselList.children().length()).to.equal(15)
     })
-
-    home.getAllProductsCarousel().each((carousel) => {
+    
+    // Get all products carousel
+    home.getProductsCarousel().each((carousel) => {
+      // Expect carousel elements to be equal to 15
+      const carouselList = carousel.find('.top-icons__list > ul')
       expect(carousel.children().length()).to.equal(15)
     })
   })
