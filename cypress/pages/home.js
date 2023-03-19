@@ -4,23 +4,13 @@ export class home {
     cy.visit('/')
   }
 
-  static getTopIconsCarousel() {
+  static getCategoryCarousel() {
     return cy.get('.top-icons')
   }
 
-  static getTopIconsItemsCarouse() {
-    return cy.get('.top-icons__list > li')
-  }
-
-  static getAllProductsCarousel() {
+  static getProductsCarousel() {
     return cy.get('.hooper-list')
   }
-
-  static getAllProductsListCarousel() {
-    return cy.get('.hooper-track > li')
-  }
-
-
 }
 
 export default home
