@@ -8,18 +8,32 @@ describe('Mall.cz Homepage Carousels Test', () => {
   })
 
   it('should verify that each carousel on the homepage displays 15 unique elements', () => {
-    // Get all carousels on the homepage
+    // Get all category carousels on the homepage
+    // Loop through every carousel found
     home.getCategoryCarousel().each((carousel) => {
+      // Find inside the carousel the list of items
+      const carouselList = carousel.find('.top-icons__list > ul')
       // Expect carousel child elements to be equal to 15
-      const carouselList = carousel.find('.top-icons__list > ul')
-      expect(carouselList.children().length()).to.equal(15)
+      carouselList
+        .children()
+        .should('have.length', 15)
+        .then(() => {
+          cy.log('Carousel has exactly 15 elements')
+        })
     })
-    
+
     // Get all products carousel
+    // Loop through every carousel found
     home.getProductsCarousel().each((carousel) => {
-      // Expect carousel elements to be equal to 15
+      // Find inside the carousel the list of items
       const carouselList = carousel.find('.top-icons__list > ul')
-      expect(carousel.children().length()).to.equal(15)
+      // Expect carousel child elements to be equal to 15
+      carouselList
+        .children()
+        .should('have.length', 15)
+        .then(() => {
+          cy.log('Carousel has exactly 15 elements')
+        })
     })
   })
 })
